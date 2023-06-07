@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button5"
+    <android.widget.Button
+        android:id="@+id/btnPular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Pular"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="628dp" />
 
@@ -30,22 +30,24 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ou entre com"
+            android:text="-------------- Ou entre com"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="288dp" />
 
-        <Button
-            android:id="@+id/button2"
+        <android.widget.Button
+            android:id="@+id/btnEntrar"
             android:layout_width="0dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="8dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_button"
             android:backgroundTint="@color/red_200"
-            android:text="Button"
-            app:cornerRadius="60dp"
+            android:text="Entrar"
+            android:textColor="#ECECEC"
+            app:cornerRadius="100dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -57,6 +59,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:gravity="center"
             android:text="Encontre receitas incríveis com ingredientes que você tem em casa!"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -66,10 +69,11 @@
             android:id="@+id/textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif"
+            android:gravity="center"
             android:text="Bem-vindo ao Chef em Casa!"
             android:textColor="#000000"
             android:textSize="24sp"
@@ -79,33 +83,57 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/btnGog"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.614"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="170dp"
+            android:background="@null"
+            android:scaleType="centerInside"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
+            app:srcCompat="@drawable/google" />
+
+        <android.widget.Button
+            android:id="@+id/btnCadastrar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_button"
+            android:text="Cadastrar"
+            android:textColor="#EC4E4E"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
+            style="?android:attr/borderlessButtonStyle"/>
 
         <ImageButton
-            android:id="@+id/imageButton4"
+            android:id="@+id/btnFace"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="72dp"
+            android:layout_marginTop="170dp"
+            android:background="@null"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:srcCompat="@drawable/google"
-            tools:layout_editor_absoluteX="120dp" />
+            app:layout_constraintEnd_toStartOf="@+id/btnTwi"
+            app:layout_constraintStart_toEndOf="@+id/btnGog"
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
+            app:srcCompat="@drawable/ic_launcher_background"
+            tools:srcCompat="@drawable/face" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
-            android:text="Button"
-            tools:layout_editor_absoluteX="154dp"
-            tools:layout_editor_absoluteY="213dp" />
+        <ImageButton
+            android:id="@+id/btnTwi"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="64dp"
+            android:background="@null"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
+            app:srcCompat="@drawable/twitter" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
