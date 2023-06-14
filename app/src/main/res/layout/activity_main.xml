@@ -30,7 +30,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-------------- Ou entre com"
+            android:text="Ou entre com"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,6 +96,7 @@
 
         <android.widget.Button
             android:id="@+id/btnCadastrar"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -106,8 +107,7 @@
             android:textColor="#EC4E4E"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnEntrar"
-            style="?android:attr/borderlessButtonStyle"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
 
         <ImageButton
             android:id="@+id/btnFace"
