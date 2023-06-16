@@ -10,4 +10,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="startred">#ff4b4b</color>
     <color name="startyellow">#ffc602</color>
+    <color name="fontred">#fe514c</color>
 </resources>

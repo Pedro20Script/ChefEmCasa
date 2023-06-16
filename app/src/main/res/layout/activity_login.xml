@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fullscreenbg"
     tools:context=".LoginActivity">
 
     <ImageButton
@@ -21,34 +22,37 @@
         android:id="@+id/btnGog2"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="32dp"
         android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnTwi2"
-        app:srcCompat="@drawable/google"
-        tools:layout_editor_absoluteY="534dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/google" />
 
     <ImageButton
         android:id="@+id/btnFace3"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginTop="32dp"
         android:background="@null"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toStartOf="@+id/btnTwi2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteY="534dp"
         tools:srcCompat="@drawable/face" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="Ou entre com"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="483dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogar" />
 
     <Button
         android:id="@+id/btnLogar"
@@ -58,70 +62,80 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/white"
+        android:fontFamily="@font/quicksand_medium"
         android:includeFontPadding="true"
         android:text="Entrar"
-        android:textColor="@color/font_red"
+        android:textColor="@color/fontred"
+        android:textSize="18sp"
         app:cornerRadius="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etSenhaLogin" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/etEmailLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/etSenhaLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/white"
         android:ems="10"
         android:hint="Senha"
         android:inputType="textPassword"
+        android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="32dp"
         android:text="Não possui uma conta?"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="643dp" />
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnCadastrarse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginEnd="60dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
         android:text="Cadastre-se"
         android:textColor="@color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.41"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        tools:layout_editor_absoluteY="628dp" />
+        app:layout_constraintStart_toEndOf="@+id/textView5" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="237dp"
-        android:layout_height="156dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        android:layout_width="230dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445"
-        app:srcCompat="@drawable/logo"
-        tools:layout_editor_absoluteX="87dp" />
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
