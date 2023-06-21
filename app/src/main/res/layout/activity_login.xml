@@ -11,35 +11,38 @@
         android:id="@+id/btnTwi2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="286dp"
         android:background="@null"
         android:scaleType="centerInside"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/twitter"
-        tools:layout_editor_absoluteX="180dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogar"
+        app:srcCompat="@drawable/twitter" />
 
     <ImageButton
         android:id="@+id/btnGog2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="286dp"
         android:background="@null"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnTwi2"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogar"
         app:srcCompat="@drawable/google" />
 
     <ImageButton
         android:id="@+id/btnFace3"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
         android:background="@null"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnTwi2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogar"
         app:srcCompat="@drawable/ic_launcher_background"
         tools:srcCompat="@drawable/face" />
 
@@ -62,7 +65,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/quicksand_medium"
+        android:fontFamily="sans-serif"
         android:includeFontPadding="true"
         android:text="Entrar"
         android:textColor="@color/fontred"
