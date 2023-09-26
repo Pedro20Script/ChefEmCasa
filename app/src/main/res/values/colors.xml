@@ -11,4 +11,12 @@
     <color name="startred">#ff4b4b</color>
     <color name="startyellow">#ffc602</color>
     <color name="fontred">#fe514c</color>
+    <color name="flush_mohagamy">#c23934</color>
+    <color name="gray">#333333</color>
+    <color name="light_gray">#dddbda</color>
+    <color name="light_light_gray">#f3f2f2</color>
+    <color name="light_light_light_gray">#e8e8e8</color>
+    <color name="orange">#ff7a3b</color>
+    <color name="dark_orange">#ff5200</color>
+    <color name="light_dark_orange">#ff6e29</color>
 </resources>
