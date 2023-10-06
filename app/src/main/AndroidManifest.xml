@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ChefEmCasa"
         tools:targetApi="31">
         <activity
+            android:name=".RecipeRegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyRecipesFragment"
             android:exported="false" />
         <activity
