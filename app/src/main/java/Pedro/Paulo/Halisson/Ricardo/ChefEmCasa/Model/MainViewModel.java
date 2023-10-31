@@ -1,4 +1,4 @@
-package Pedro.Paulo.Halisson.Ricardo.ChefEmCasa;
+package Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.Model;
 
 /*
 import android.app.Application;

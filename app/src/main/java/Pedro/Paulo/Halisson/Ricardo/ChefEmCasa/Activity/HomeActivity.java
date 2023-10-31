@@ -1,4 +1,4 @@
-package Pedro.Paulo.Halisson.Ricardo.ChefEmCasa;
+package Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,6 +14,8 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+
+import Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.R;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -22,6 +25,11 @@ public class HomeActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        Intent i = getIntent();
+
+        //Texto
+        String texto = i.getStringExtra("texto");
         /*
         final MainViewModel vm = new ViewModelProvider(this).get(MainViewModel.class);
         bottomNavigationView = findViewById(R.id.btNav);

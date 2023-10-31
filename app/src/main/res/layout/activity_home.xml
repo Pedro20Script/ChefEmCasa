@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#807979"
     android:backgroundTint="#817D7D"
-    tools:context=".HomeActivity">
+    tools:context=".Activity.HomeActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/btNav"

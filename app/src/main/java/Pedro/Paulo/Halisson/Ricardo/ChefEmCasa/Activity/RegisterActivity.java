@@ -1,8 +1,10 @@
-package Pedro.Paulo.Halisson.Ricardo.ChefEmCasa;
+package Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
