@@ -23,46 +23,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.Model.LoginViewModel;
+import Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.Model.RegisterViewModel;
 import Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.R;
 import Pedro.Paulo.Halisson.Ricardo.ChefEmCasa.Util.Config;
 
 public class RegisterActivity extends AppCompatActivity {
 
     static int RESULT_REQUEST_PERMISSION = 2;
-    LoginViewModel loginViewModel;
+    RegisterViewModel registerViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        Button btnLogar = findViewById(R.id.btnLogar);
-        List<String> permissions = new ArrayList<>();
-        permissions.add(Manifest.permission.CAMERA);
-        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+        setContentView(R.layout.activity_cadastro);
+        Button btnRegister = findViewById(R.id.btnCadastro);
 
-        checkForPermissions(permissions);
 
         // A função que entra em contato com o servidor web está definida dentro da ViewModel
         // referente a essa Activity
-        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
-        btnLogar.setOnClickListener(new View.OnClickListener() {
+        registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Pega o edit text
                 EditText etUser = findViewById(R.id.etUser);
                 final String textoUser = etUser.getText().toString();
+                if(textoUser.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Campo de login não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 //Pega o edit text
                 EditText etEmail = findViewById(R.id.etEmail);
                 //Texto dentro do edit text
                 final String textoEmail = etEmail.getText().toString();
-
+                if(textoEmail.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Campo de email não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 EditText etSenha = findViewById(R.id.etSenha);
                 final String textoSenha = etSenha.getText().toString();
-
+                if(textoSenha.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Campo de senha não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
                 EditText etConfirmSenha = findViewById(R.id.etConfirmSenha);
                 final String textoConfirmSenha = etConfirmSenha.getText().toString();
-                //Conexão entre as duas telas
-                LiveData<Boolean> resultLD = loginViewModel.login(textoEmail, textoSenha);
+                if(textoConfirmSenha.isEmpty()) {
+                    Toast.makeText(RegisterActivity.this, "Campo de checagem de senha não preenchido", Toast.LENGTH_LONG).show();
+                    return;
+                }
 
+                if(!textoSenha.equals(textoConfirmSenha)) {
+                    Toast.makeText(RegisterActivity.this, "Senha não confere", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                //Conexão entre as duas telas
+                LiveData<Boolean> resultLD = registerViewModel.register(textoEmail, textoSenha, textoUser);
                 // Aqui nós observamos o LiveData. Quando o servidor responder, o resultado indicando
                 // se o login deu certo ou não será guardado dentro do LiveData. Neste momento o
                 // LiveData avisa que o resultado chegou chamando o método onChanged abaixo.
@@ -76,100 +91,18 @@ public class RegisterActivity extends AppCompatActivity {
                         // para que possam ser usadas quando a app pedir dados ao servidor web que só
                         // podem ser obtidos se o usuário enviar o login e senha.
                         if(aBoolean) {
-                            // guarda os dados de login e senha dentro da app
-                            Config.setLogin(RegisterActivity.this, textoEmail);
-                            Config.setPassword(RegisterActivity.this, textoSenha);
-
-                            // exibe uma mensagem indicando que o login deu certo
-                            Toast.makeText(RegisterActivity.this, "Login realizado com sucesso", Toast.LENGTH_LONG).show();
-
-                            // Navega para tela principal
-                            Intent i = new Intent(RegisterActivity.this, HomeActivity.class);
-                            startActivity(i);
+                            Toast.makeText(RegisterActivity.this, "Novo usuario registrado com sucesso", Toast.LENGTH_LONG).show();
+                            finish();
                         }
                         else {
-
-                            // Se o login não deu certo, apenas continuamos na tela de login e
-                            // indicamos com uma mensagem ao usuário que o login não deu certo.
-                            Toast.makeText(RegisterActivity.this, "Não foi possível realizar o login da aplicação", Toast.LENGTH_LONG).show();
+                            // Se o cadastro não deu certo, apenas continuamos na tela de cadastro e
+                            // indicamos com uma mensagem ao usuário que o cadastro não deu certo.
+                            Toast.makeText(RegisterActivity.this, "Erro ao registrar novo usuário", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
             }
         });
-        Button btnRegister = findViewById(R.id.btnRegister);
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Pega o edit text
-
-                //Conexão entre as duas telas
-                Intent intent = new Intent(RegisterActivity.this,RegisterActivity.class);
-                //Passa o texto para a próxima tela
-                //Vai para a próxima tela
-                startActivity(intent);
-            }
-        });
-    }
-    private void checkForPermissions(List<String> permissions) {
-        List<String> permissionsNotGranted = new ArrayList<>();
-
-        for(String permission : permissions) {
-            if( !hasPermission(permission)) {
-                permissionsNotGranted.add(permission);
-            }
-        }
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(permissionsNotGranted.size() > 0) {
-                requestPermissions(permissionsNotGranted.toArray(new String[permissionsNotGranted.size()]),RESULT_REQUEST_PERMISSION);
-            }
-        }
     }
 
-    /**
-     * Verifica se uma permissão já foi concedida
-     * @param permission
-     * @return true caso sim, false caso não.
-     */
-    private boolean hasPermission(String permission) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            return ActivityCompat.checkSelfPermission(RegisterActivity.this, permission) == PackageManager.PERMISSION_GRANTED;
-        }
-        return false;
-    }
-
-    /**
-     * Método chamado depois que o usuário já escolheu as permissões que quer conceder. Esse método
-     * indica o resultado das escolhas do usuário.
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        final List<String> permissionsRejected = new ArrayList<>();
-        if(requestCode == RESULT_REQUEST_PERMISSION) {
-
-            for(String permission : permissions) {
-                if(!hasPermission(permission)) {
-                    permissionsRejected.add(permission);
-                }
-            }
-        }
-
-        if(permissionsRejected.size() > 0) {
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if(shouldShowRequestPermissionRationale(permissionsRejected.get(0))) {
-                    new AlertDialog.Builder(RegisterActivity.this).
-                            setMessage("Para usar essa app é preciso conceder essas permissões").
-                            setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    requestPermissions(permissionsRejected.toArray(new String[permissionsRejected.size()]), RESULT_REQUEST_PERMISSION);
-                                }
-                            }).create().show();
-                }
-            }
-        }
-    }
 }

@@ -33,12 +33,13 @@ public class ProductsRepository {
      * @param newPassword a senha do novo usuário
      * @return true se o usuário foi cadastrado e false caso contrário
      */
-    public boolean register(String newLogin, String newPassword) {
+    public boolean register(String newLogin, String newPassword, String newUser) {
 
         // Cria uma requisição HTTP a adiona o parâmetros que devem ser enviados ao servidor
         HttpRequest httpRequest = new HttpRequest(Config.PRODUCTS_APP_URL + "registrar.php", "POST", "UTF-8");
-        httpRequest.addParam("novo_login", newLogin);
+        httpRequest.addParam("novo_email", newLogin);
         httpRequest.addParam("nova_senha", newPassword);
+        httpRequest.addParam("novo_nome", newUser);
 
         String result = "";
         try {
